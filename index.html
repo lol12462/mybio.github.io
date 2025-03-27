@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё био</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f1a;
+            color: #e0e0ff;
+            font-family: 'Ubuntu', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(100, 80, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 80, 180, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #6a3dff;
+            box-shadow: 0 0 30px #6a3dff, 0 0 60px rgba(106, 61, 255, 0.5);
+            transition: transform 0.3s;
+            margin: 0 auto;
+        }
+        
+        .avatar:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: #ff4db8;
+            text-shadow: 0 0 10px #ff4db8;
+            margin: 20px 0;
+            font-size: 2.5em;
+        }
+        
+        .discord-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #5865F2, #8ea1f2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
+        
+        .discord-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
+            background: linear-gradient(45deg, #8ea1f2, #5865F2);
+        }
+        
+        .music-player {
+            margin-top: 40px;
+            background: rgba(20, 20, 40, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid #6a3dff;
+        }
+        
+        .music-title {
+            font-family: 'Press Start 2P', cursive;
+            color: #6a3dff;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .bio-text {
+            background: rgba(20, 20, 40, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: left;
+            line-height: 1.6;
+            border: 1px solid #ff4db8;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(106, 61, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(106, 61, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(106, 61, 255, 0); }
+        }
+        
+        /* Анимация фона */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: 0;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированные звезды на фоне -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <img src="https://media1.tenor.com/m/hdl1-Mdo5XkAAAAC/neko-arc.gif" alt="Аватарка" class="avatar pulse">
+            <h1>МОЁ БИО</h1>
+        </header>
+        
+        <div class="bio-text">
+            <!-- Текст био удален по просьбе пользователя -->
+        </div>
+        
+        <a href="https://discord.gg/Ky7wpzVj9p" class="discord-btn" target="_blank">
+            Присоединиться в Discord
+        </a>
+        
+        <div class="music-player">
+            <div class="music-title">♪ 666 КАДРОВ - UNKI ♪</div>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/unkiplug/666kadrov&color=%23ff4db8&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        // Создание анимированных звезд
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Случайные параметры для звезд
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = 2 + Math.random() * 3;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+        });
+    </script>
+</body>
+</html>
