@@ -10,11 +10,13 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #0f0f1a;
+            background-color: #0a0a12;
             color: #e0e0ff;
             font-family: 'Ubuntu', sans-serif;
-            overflow-x: hidden;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(106, 61, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255, 77, 184, 0.1) 0%, transparent 25%);
             opacity: 0;
             animation: fadeIn 1s ease-out forwards;
         }
@@ -30,13 +32,9 @@
             text-align: center;
         }
         
-        header {
-            margin-bottom: 30px;
-        }
-        
         .avatar {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #6a3dff;
@@ -44,10 +42,10 @@
             margin: 0 auto;
             display: block;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             animation: 
                 slideUp 0.8s ease-out 0.3s forwards,
-                pulse 2s infinite 1.1s;
+                pulse 3s infinite 1.1s;
         }
 
         @keyframes slideUp {
@@ -58,26 +56,19 @@
         }
         
         @keyframes pulse {
-            0%, 100% { 
-                box-shadow: 0 0 30px #6a3dff; 
-                transform: scale(1);
-            }
-            50% { 
-                box-shadow: 0 0 50px #6a3dff;
-                transform: scale(1.02);
-            }
+            0%, 100% { box-shadow: 0 0 30px #6a3dff; }
+            50% { box-shadow: 0 0 50px #6a3dff; }
         }
         
         h1 {
             font-family: 'Press Start 2P', cursive;
             color: #ff4db8;
             text-shadow: 0 0 15px #ff4db8;
-            margin: 20px 0;
-            font-size: 2.5em;
+            margin: 25px 0;
+            font-size: 2.8em;
+            letter-spacing: 2px;
             opacity: 0;
-            animation: 
-                textGlow 0.8s ease-out 0.5s forwards,
-                textPulse 3s infinite 1.3s;
+            animation: textGlow 0.8s ease-out 0.5s forwards;
         }
 
         @keyframes textGlow {
@@ -90,37 +81,35 @@
                 transform: scale(1);
             }
         }
-
-        @keyframes textPulse {
-            0%, 100% { text-shadow: 0 0 15px #ff4db8; }
-            50% { text-shadow: 0 0 25px #ff4db8; }
-        }
         
         .bio-text {
-            background: rgba(20, 20, 40, 0.7);
-            padding: 20px;
+            background: rgba(20, 20, 40, 0.8);
+            padding: 25px;
             border-radius: 15px;
             margin: 30px auto;
             max-width: 600px;
-            line-height: 1.6;
+            line-height: 1.7;
             border: 1px solid #ff4db8;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            min-height: 100px;
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+            animation: fadeIn 0.8s ease-out 0.7s forwards;
         }
-
-        @keyframes fadeInUp {
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        .typed-text {
+            border-right: 2px solid #ff4db8;
+            animation: blink 0.7s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #ff4db8; }
         }
         
         .discord-btn {
             display: inline-block;
             margin: 30px 0;
-            padding: 15px 30px;
+            padding: 16px 35px;
             background: linear-gradient(45deg, #5865F2, #8ea1f2);
             color: white;
             text-decoration: none;
@@ -128,71 +117,142 @@
             font-weight: bold;
             font-size: 1.2em;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
             opacity: 0;
-            transform: scale(0.8);
-            animation: popIn 0.6s ease-out 0.9s forwards;
-        }
-
-        @keyframes popIn {
-            to { 
-                opacity: 1;
-                transform: scale(1);
-            }
+            animation: fadeIn 0.8s ease-out 0.9s forwards;
         }
         
         .discord-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
         }
         
-        .music-player {
+        .music-box {
             margin: 40px auto;
-            background: rgba(20, 20, 40, 0.7);
-            padding: 20px;
-            border-radius: 15px;
             max-width: 500px;
-            border: 1px solid #6a3dff;
             opacity: 0;
-            transform: translateX(-30px);
-            animation: slideIn 0.8s ease-out 1.1s forwards;
+            animation: fadeIn 0.8s ease-out 1.1s forwards;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #6a3dff;
+            box-shadow: 0 0 20px rgba(106, 61, 255, 0.3);
         }
 
-        @keyframes slideIn {
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .track-list {
+            margin-top: 15px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
         }
-        
-        .music-title {
-            font-family: 'Press Start 2P', cursive;
-            color: #6a3dff;
-            margin-bottom: 15px;
-            font-size: 1.2em;
+
+        .track {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            background: rgba(30, 30, 60, 0.5);
+            transition: all 0.3s;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            font-size: 1.1em;
+        }
+
+        .track:hover {
+            background: rgba(106, 61, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .track.active {
+            background: rgba(106, 61, 255, 0.3);
+            border-left: 3px solid #ff4db8;
+            font-weight: bold;
+        }
+
+        iframe {
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            height: 166px;
+            border: none;
+        }
+
+        .track-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .track-list::-webkit-scrollbar-track {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 3px;
+        }
+
+        .track-list::-webkit-scrollbar-thumb {
+            background: #6a3dff;
+            border-radius: 3px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <!-- Ваша аватарка -->
-            <img src="https://media1.tenor.com/m/hdl1-Mdo5XkAAAAC/neko-arc.gif" alt="Аватарка" class="avatar">
-            <h1>МОЁ БИО</h1>
-        </header>
+        <img src="https://media1.tenor.com/m/hdl1-Mdo5XkAAAAC/neko-arc.gif" alt="Аватарка" class="avatar">
+        <h1>МОЁ БИО</h1>
         
-        <div class="bio-text">
-            Привет! Я кодер, пишу программы на пайтоне, хочу выучить C++ и C# :D
-        </div>
+        <div class="bio-text" id="bio-text"></div>
         
         <a href="https://discord.gg/Ky7wpzVj9p" class="discord-btn" target="_blank">
             Дискорд сервер
         </a>
         
-        <div class="music-player">
-            <div class="music-title">♪ UNKI - 6 КАДРОВ ♪</div>
-            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
-                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/unkiplug/666kadrov&color=%23ff4db8&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        <div class="music-box">
+            <iframe id="soundcloud-player"></iframe>
+            
+            <div class="track-list">
+                <div class="track active" data-src="https://soundcloud.com/soda-luv/komi">Komi - SODA LUV</div>
+                <div class="track" data-src="https://soundcloud.com/ogbuda/na-kortakh-feat-163onmyneck-fearmuch">На Кортах - OG Buda</div>
+                <div class="track" data-src="https://soundcloud.com/unki-30139076/daleko-4">Далеко - UNKI</div>
+                <div class="track" data-src="https://soundcloud.com/unki-30139076/pchely">Пчелы - UNKI</div>
+                <div class="track" data-src="https://soundcloud.com/unki-30139076/white-money">WHITE MONEY - UNKI</div>
+                <div class="track" data-src="https://soundcloud.com/unki-30139076/pomenyal">Поменяли - UNKI</div>
+                <div class="track" data-src="https://soundcloud.com/unkiplug/666kadrov">6 КАДРОВ - UNKI</div>
+            </div>
         </div>
     </div>
+
+    <script>
+        const text = "Привет! Я кодер, пишу программы на пайтоне, хочу выучить C++ и C# :D";
+        const bioElement = document.getElementById('bio-text');
+        const player = document.getElementById('soundcloud-player');
+        const tracks = document.querySelectorAll('.track');
+        
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                bioElement.innerHTML = text.substring(0, i+1) + '<span class="typed-text"></span>';
+                i++;
+                setTimeout(typeWriter, 50 + Math.random() * 50);
+            } else {
+                bioElement.innerHTML = text;
+            }
+        }
+        
+        function loadTrack(trackUrl) {
+            const encodedUrl = encodeURIComponent(trackUrl);
+            player.src = `https://w.soundcloud.com/player/?url=${encodedUrl}&color=%23ff4db8&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`;
+        }
+        
+        tracks.forEach(track => {
+            track.addEventListener('click', function() {
+                tracks.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                loadTrack(this.getAttribute('data-src'));
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(typeWriter, 1000);
+            loadTrack(tracks[0].getAttribute('data-src'));
+        });
+    </script>
 </body>
 </html>
