@@ -297,14 +297,25 @@
             display: none;
         }
 
-        .no-copy-message {
+        .copyright-notice {
             position: fixed;
             bottom: 10px;
             left: 0;
             right: 0;
             text-align: center;
             color: rgba(255, 77, 184, 0.5);
-            font-size: 0.9em;
+            font-size: 0.8em;
+            padding: 5px;
+            background: rgba(10, 10, 18, 0.7);
+        }
+        
+        .copyright-notice a {
+            color: rgba(106, 61, 255, 0.7);
+            text-decoration: none;
+        }
+        
+        .copyright-notice a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -346,22 +357,24 @@
                 <div class="track" data-src="https://soundcloud.com/unki-30139076/white-money">WHITE MONEY - UNKI</div>
                 <div class="track" data-src="https://soundcloud.com/unki-30139076/pomenyal">Поменяли - UNKI</div>
                 <div class="track" data-src="https://soundcloud.com/unkiplug/666kadrov">6 КАДРОВ - UNKI</div>
+                <div class="track" data-src="https://soundcloud.com/ogbudek/60583bd6-3c9d-4a2e-a044-7828fde28a32">unki feat. OG BUDA - ВРЕМЯ</div>
             </div>
         </div>
 
-        <div class="no-copy-message">
-            Копирование запрещено  © УК РФ Статья 146. Нарушение авторских и смежных прав
+        <div class="copyright-notice">
+            Копирование запрещено | 
+            <a href="" target="_blank">УК РФ Статья 146. Нарушение авторских и смежных прав</a>
         </div>
     </div>
 
     <script>
-
+        // Анти-копирование
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
 
         document.addEventListener('keydown', function(e) {
-
+            // Блокировка F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
             if (e.key === 'F12' || 
                 (e.ctrlKey && e.shiftKey && e.key === 'I') || 
                 (e.ctrlKey && e.shiftKey && e.key === 'J') || 
@@ -370,7 +383,7 @@
             }
         });
 
-
+        // Запрет выделения текста
         document.addEventListener('selectstart', function(e) {
             e.preventDefault();
         });
@@ -391,7 +404,7 @@
         
         let currentAnswer = 0;
         
-
+        // Цитаты из треков
         const quotes = [
             {
                 text: "Тебе не догнать меня, я далеко. До меня не достанешь, я так высоко. Blicky — это twin, я не кину бро",
@@ -412,6 +425,10 @@
             {
                 text: "Меня не поменяли деньги, это я их поменял. Просто делал рэп, и теперь они знают про меня. Курю ещё один, бля, пожалуйста, поправь меня. Лечу, как Алладин, мои лёгкие отравлены",
                 author: "Поменяли - UNKI"
+            },
+            {
+                text: "Я пытаюсь быть на чистом: плаг звонит, не буду брать. Мне нужно хавать больше мяса — так мне сказал врач",
+                author: "UNKI feat. OG BUDA - ВРЕМЯ"
             }
         ];
         
